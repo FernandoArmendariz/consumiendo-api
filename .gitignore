@@ -1,0 +1,9 @@
+# Local configuration file
+.vscode
+
+# local Python virtual environment
+.venv
+
+# pycache files and directories
+__pycache__
+.pyc
