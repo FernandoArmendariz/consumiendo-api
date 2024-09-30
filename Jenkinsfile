@@ -16,9 +16,10 @@ pipeline {
 
         stage('Build Docker Image') {
             steps {
-                bat 'docker build -t flask-app-image .'
+                bat 'docker build --no-cache -t flask-app-image .'
             }
         }
+
 
         stage('Run Flask App') {
             steps {
@@ -27,16 +28,17 @@ pipeline {
         }
 
         stage('Run Tests') {
-            steps {
-                bat 'docker exec flask-app python -m xmlrunner discover -s tests -o test-results'
-            }
-            post {
-                always {
-                    // Publicar los resultados de las pruebas
-                    junit 'test-results/*.xml'
-                }
+    steps {
+        // Ejecutar pruebas y generar archivo XML para Jenkins
+        bat 'docker exec flask-app python -m xmlrunner discover -s tests -o test-results'
+        }
+        post {
+            always {
+                // Publicar los resultados de las pruebas
+                junit 'test-results/*.xml'
             }
         }
+    }
 
         stage('Cleanup') {
             steps {

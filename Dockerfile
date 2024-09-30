@@ -1,17 +1,18 @@
-FROM python:3.9.20
+# Dockerfile
+FROM python:3.9
 
-# Establecer el directorio de trabajo
+# Configurar el directorio de trabajo
 WORKDIR /app
 
-# Copiar los archivos del proyecto
-COPY . .
+# Copiar los archivos de la aplicación
+COPY . /app
 
-# Instalar dependencias
+# Instalar las dependencias
 RUN pip install -r requirements.txt
+RUN pip install unittest-xml-reporting
 
-# Exponer el puerto donde corre Flask
+# Exponer el puerto que utiliza Flask
 EXPOSE 5000
 
-# Comando para correr la aplicación Flask
-CMD ["flask", "run", "--host=0.0.0.0", "--port=5000"]
-
+# Ejecutar la aplicación
+CMD ["python", "app.py"]
