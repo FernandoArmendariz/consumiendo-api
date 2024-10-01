@@ -2,6 +2,7 @@ pipeline {
     agent { label 'python' }
 
     stages {
+    
         stage('Checkout') {
             steps {
                 checkout scm
@@ -32,14 +33,6 @@ pipeline {
                     }
                 }
             }
-
-        stage('Limpieza') {
-            steps {
-                bat 'docker stop flask-app || exit 0'
-                bat 'docker rm flask-app || exit 0'
-                bat 'docker rmi flask-app-image || exit 0'
-            }
-        }
     }
 
     post {
@@ -47,6 +40,21 @@ pipeline {
             mail to: 'devops@example.com',
                  subject: "Pipeline Failed: ${currentBuild.fullDisplayName}",
                  body: "Check Jenkins for details: ${env.BUILD_URL}"
+        }
+
+        success {
+            steps {
+                echo 'Pipeline ejecutado correctamente!'
+            }
+        }
+
+        always {
+            echo 'Pipeline finalizado!'
+            steps {
+                bat 'docker stop flask-app || exit 0'
+                bat 'docker rm flask-app || exit 0'
+                bat 'docker rmi flask-app-image || exit 0'
+            }
         }
     }
 }
