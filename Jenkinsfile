@@ -14,12 +14,6 @@ pipeline {
             }
         }
 
-        stage('Instalar dependencias') {
-            steps {
-                bat 'pip install requirements.txt'
-            }
-        }
-
         stage('ejecutar aplicación Flask') {
             steps {
                 bat 'docker run -d --name flask-app -p 5000:5000 flask-app-image'
