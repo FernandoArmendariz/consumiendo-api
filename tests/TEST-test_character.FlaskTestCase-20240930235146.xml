@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="test_character.FlaskTestCase-20240930235146" tests="5" file="test_character.py" time="0.771" timestamp="2024-09-30T23:51:47" failures="0" errors="0" skipped="0">
+	<testcase classname="test_character.FlaskTestCase" name="test_character_found" time="0.231" timestamp="2024-09-30T23:51:47" file="tests\test_character.py" line="27"/>
+	<testcase classname="test_character.FlaskTestCase" name="test_character_id_not_a_number" time="0.001" timestamp="2024-09-30T23:51:47" file="tests\test_character.py" line="21"/>
+	<testcase classname="test_character.FlaskTestCase" name="test_character_id_required_json_empty" time="0.001" timestamp="2024-09-30T23:51:47" file="tests\test_character.py" line="9"/>
+	<testcase classname="test_character.FlaskTestCase" name="test_character_id_required_query_empty" time="0.001" timestamp="2024-09-30T23:51:47" file="tests\test_character.py" line="15"/>
+	<testcase classname="test_character.FlaskTestCase" name="test_character_not_found" time="0.537" timestamp="2024-09-30T23:51:47" file="tests\test_character.py" line="33"/>
+</testsuite>
