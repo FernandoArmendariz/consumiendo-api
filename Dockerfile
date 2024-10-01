@@ -8,8 +8,7 @@ WORKDIR /app
 COPY . /app
 
 # Instalar las dependencias
-RUN pip install -r requirements.txt
-RUN pip install unittest-xml-reporting
+RUN pip install -r /app/requirements.txt
 
 # Exponer el puerto que utiliza Flask
 EXPOSE 5000
