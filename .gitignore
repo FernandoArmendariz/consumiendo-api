@@ -7,3 +7,6 @@
 # pycache files and directories
 __pycache__
 .pyc
+
+# Test result
+TEST-*.xml

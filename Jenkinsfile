@@ -30,12 +30,12 @@ pipeline {
         stage('Run Tests') {
     steps {
         // Ejecutar pruebas y generar archivo XML para Jenkins
-        bat 'docker exec flask-app python -m xmlrunner discover -s tests -o test-results'
+        bat 'docker exec flask-app python -m xmlrunner discover -s tests -o tests'
         }
         post {
             always {
                 // Publicar los resultados de las pruebas
-                junit 'test-results/*.xml'
+                junit 'test/*.xml'
             }
         }
     }
