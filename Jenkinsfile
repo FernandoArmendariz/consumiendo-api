@@ -27,17 +27,17 @@ pipeline {
         }
 
         stage('Correr Tests') {
-    steps {
-        // Ejecutar pruebas y generar archivo XML para Jenkins
-        bat 'docker exec flask-app python -m xmlrunner discover -s tests -o tests'
-        }
-        post {
-            always {
-                // Publicar los resultados de las pruebas
-                junit 'tests/*.xml'
+            steps {
+                // Ejecutar pruebas y generar archivo XML para Jenkins
+                bat 'docker exec flask-app python -m xmlrunner discover -s tests -o tests'
+                }
+                post {
+                    always {
+                        // Publicar los resultados de las pruebas
+                        junit 'tests/*.xml'
+                    }
+                }
             }
-        }
-    }
 
         stage('Limpieza') {
             steps {
