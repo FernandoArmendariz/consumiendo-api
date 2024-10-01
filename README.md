@@ -74,7 +74,7 @@ Para ejecutar las pruebas, usa el siguiente comando:
 }
 ```
 
-## Pruebas
+## Tests
 
 Para ejecutar las pruebas, usa el siguiente comando:
 
