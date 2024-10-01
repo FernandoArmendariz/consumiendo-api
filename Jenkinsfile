@@ -37,6 +37,7 @@ pipeline {
 
     post {
         failure {
+            echo 'Falló la ejecución del pipeline!'
             mail to: 'devops@example.com',
                  subject: "Pipeline Failed: ${currentBuild.fullDisplayName}",
                  body: "Check Jenkins for details: ${env.BUILD_URL}"
