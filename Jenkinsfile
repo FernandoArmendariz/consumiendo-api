@@ -44,18 +44,14 @@ pipeline {
         }
 
         success {
-            steps {
-                echo 'Pipeline ejecutado correctamente!'
-            }
+            echo 'Pipeline ejecutado correctamente!'
         }
 
         always {
             echo 'Pipeline finalizado!'
-            steps {
-                bat 'docker stop flask-app || exit 0'
-                bat 'docker rm flask-app || exit 0'
-                bat 'docker rmi flask-app-image || exit 0'
-            }
+            bat 'docker stop flask-app || exit 0'
+            bat 'docker rm flask-app || exit 0'
+            bat 'docker rmi flask-app-image || exit 0'
         }
     }
 }
